@@ -1,4 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+import path from "path";
+import { fileURLToPath } from "url";
 
-export default nextConfig
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  turbopack: {
+    root: projectRoot,
+  },
+  serverExternalPackages: ["pdf-parse"],
+};
+
+export default nextConfig;
